@@ -45,7 +45,7 @@ class GalleryCollectionViewController: UICollectionViewController {
 
 		let groupSize = NSCollectionLayoutSize(
 			widthDimension: .fractionalWidth(1),
-			heightDimension: .absolute(187)
+			heightDimension: .fractionalWidth(0.5)
 		)
 
 		let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 2)
