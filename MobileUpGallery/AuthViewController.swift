@@ -16,7 +16,13 @@ class AuthViewController: UIViewController {
     }
 
 
-    /*
+	@IBAction func buttonTapped(_ sender: Any) {
+		let collectionViewController = GalleryCollectionViewController(collectionViewLayout: GalleryCollectionViewController.generateLayout())
+		let navigationController = UINavigationController(rootViewController: collectionViewController)
+		navigationController.modalPresentationStyle = .fullScreen
+		present(navigationController, animated: true, completion: nil)
+	}
+	/*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation

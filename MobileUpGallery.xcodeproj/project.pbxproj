@@ -10,6 +10,9 @@
 		67052B4219158DBFFB3827E0 /* Pods_MobileUpGallery.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDC0E17304D687BCC733DFC6 /* Pods_MobileUpGallery.framework */; };
 		7D92BC7426AF3FC5009A07C3 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D92BC7226AF3FC5009A07C3 /* AuthViewController.swift */; };
 		7D92BC7526AF3FC5009A07C3 /* AuthViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D92BC7326AF3FC5009A07C3 /* AuthViewController.xib */; };
+		7D92BC7C26AF5AC8009A07C3 /* GalleryCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D92BC7B26AF5AC8009A07C3 /* GalleryCollectionViewController.swift */; };
+		7D92BC8026AF5B64009A07C3 /* GalleryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D92BC7E26AF5B64009A07C3 /* GalleryCollectionViewCell.swift */; };
+		7D92BC8126AF5B64009A07C3 /* GalleryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D92BC7F26AF5B64009A07C3 /* GalleryCollectionViewCell.xib */; };
 		7DDB592226AF3E2000355E3E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DDB592126AF3E2000355E3E /* AppDelegate.swift */; };
 		7DDB592426AF3E2000355E3E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DDB592326AF3E2000355E3E /* SceneDelegate.swift */; };
 		7DDB592B26AF3E2100355E3E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7DDB592A26AF3E2100355E3E /* Assets.xcassets */; };
@@ -19,6 +22,9 @@
 /* Begin PBXFileReference section */
 		7D92BC7226AF3FC5009A07C3 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		7D92BC7326AF3FC5009A07C3 /* AuthViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AuthViewController.xib; sourceTree = "<group>"; };
+		7D92BC7B26AF5AC8009A07C3 /* GalleryCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCollectionViewController.swift; sourceTree = "<group>"; };
+		7D92BC7E26AF5B64009A07C3 /* GalleryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCollectionViewCell.swift; sourceTree = "<group>"; };
+		7D92BC7F26AF5B64009A07C3 /* GalleryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GalleryCollectionViewCell.xib; sourceTree = "<group>"; };
 		7DDB591E26AF3E2000355E3E /* MobileUpGallery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobileUpGallery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DDB592126AF3E2000355E3E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7DDB592326AF3E2000355E3E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -79,6 +85,9 @@
 				7DDB592F26AF3E2100355E3E /* Info.plist */,
 				7D92BC7226AF3FC5009A07C3 /* AuthViewController.swift */,
 				7D92BC7326AF3FC5009A07C3 /* AuthViewController.xib */,
+				7D92BC7B26AF5AC8009A07C3 /* GalleryCollectionViewController.swift */,
+				7D92BC7E26AF5B64009A07C3 /* GalleryCollectionViewCell.swift */,
+				7D92BC7F26AF5B64009A07C3 /* GalleryCollectionViewCell.xib */,
 			);
 			path = MobileUpGallery;
 			sourceTree = "<group>";
@@ -151,6 +160,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7DDB592E26AF3E2100355E3E /* LaunchScreen.storyboard in Resources */,
+				7D92BC8126AF5B64009A07C3 /* GalleryCollectionViewCell.xib in Resources */,
 				7D92BC7526AF3FC5009A07C3 /* AuthViewController.xib in Resources */,
 				7DDB592B26AF3E2100355E3E /* Assets.xcassets in Resources */,
 			);
@@ -206,8 +216,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				7DDB592226AF3E2000355E3E /* AppDelegate.swift in Sources */,
+				7D92BC8026AF5B64009A07C3 /* GalleryCollectionViewCell.swift in Sources */,
 				7D92BC7426AF3FC5009A07C3 /* AuthViewController.swift in Sources */,
 				7DDB592426AF3E2000355E3E /* SceneDelegate.swift in Sources */,
+				7D92BC7C26AF5AC8009A07C3 /* GalleryCollectionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
