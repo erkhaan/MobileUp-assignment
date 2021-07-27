@@ -11,9 +11,13 @@ class ImageViewController: UIViewController {
 
 	@IBOutlet weak var imageView: UIImageView!
 
+	var image: UIImage?
+
 	override func viewDidLoad() {
         super.viewDidLoad()
 		navigationItem.title = "Some data"
+		guard let image = image else { return }
+		imageView.image = image
         // Do any additional setup after loading the view.
     }
 

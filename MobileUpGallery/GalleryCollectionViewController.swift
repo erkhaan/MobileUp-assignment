@@ -109,8 +109,11 @@ class GalleryCollectionViewController: UICollectionViewController {
     // MARK: UICollectionViewDelegate
 
 	override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+		print("Cell \(indexPath.row + 1) clicked")
 		let viewController = ImageViewController()
 		setBackButtonSettings()
+		let cell = collectionView.cellForItem(at: indexPath) as! GalleryCollectionViewCell
+		viewController.image = cell.imageView.image
 		navigationController?.pushViewController(viewController, animated: true)
 	}
 
