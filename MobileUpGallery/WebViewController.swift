@@ -19,7 +19,7 @@ class WebViewController: UIViewController {
 	func setupWebView(){
 		view.backgroundColor = .white
 		webView.frame = self.view.bounds
-		//webView.navigationDelegate = self
+		webView.navigationDelegate = self
 		view.addSubview(self.webView)
 	}
 
@@ -35,6 +35,26 @@ class WebViewController: UIViewController {
 
 }
 
-/*extension WebViewController: WKNavigationDelegate{
+extension WebViewController: WKNavigationDelegate{
+	func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+		if let url = navigationAction.request.url{
+			let targetString = url.absoluteString.replacingOccurrences(of: "#", with: "?")
+			guard let components = URLComponents(string: targetString) else{
+				return
+			}
+			let token = components.queryItems?.first(where: {$0.name == "access_token"})?.value
+			if let token = token{
+				delegate?.gotToken(token: token)
+			}
+			decisionHandler(.cancel)
+			self.dismiss(animated: true, completion: nil)
+			return
+		}
+		decisionHandler(.allow)
+	}
 
-}*/
+	func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
+		print("\(error)")
+		self.dismiss(animated: true, completion: nil)
+	}
+}
