@@ -19,6 +19,7 @@
 		7DDB592E26AF3E2100355E3E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DDB592C26AF3E2100355E3E /* LaunchScreen.storyboard */; };
 		7DE25D6526B01E21001436DA /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE25D6326B01E21001436DA /* ImageViewController.swift */; };
 		7DE25D6626B01E21001436DA /* ImageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7DE25D6426B01E21001436DA /* ImageViewController.xib */; };
+		7DE25D6926B0BCC1001436DA /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE25D6826B0BCC1001436DA /* WebViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		7DDB592F26AF3E2100355E3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7DE25D6326B01E21001436DA /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 		7DE25D6426B01E21001436DA /* ImageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageViewController.xib; sourceTree = "<group>"; };
+		7DE25D6826B0BCC1001436DA /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		99A2BD2A115EF320691A5BE7 /* Pods-MobileUpGallery.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobileUpGallery.debug.xcconfig"; path = "Target Support Files/Pods-MobileUpGallery/Pods-MobileUpGallery.debug.xcconfig"; sourceTree = "<group>"; };
 		9AF64C109203B0C69E712346 /* Pods-MobileUpGallery.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobileUpGallery.release.xcconfig"; path = "Target Support Files/Pods-MobileUpGallery/Pods-MobileUpGallery.release.xcconfig"; sourceTree = "<group>"; };
 		CDC0E17304D687BCC733DFC6 /* Pods_MobileUpGallery.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MobileUpGallery.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -84,7 +86,6 @@
 			children = (
 				7DDB592126AF3E2000355E3E /* AppDelegate.swift */,
 				7DDB592326AF3E2000355E3E /* SceneDelegate.swift */,
-				7DDB592A26AF3E2100355E3E /* Assets.xcassets */,
 				7DDB592C26AF3E2100355E3E /* LaunchScreen.storyboard */,
 				7DDB592F26AF3E2100355E3E /* Info.plist */,
 				7D92BC7226AF3FC5009A07C3 /* AuthViewController.swift */,
@@ -94,6 +95,8 @@
 				7D92BC7F26AF5B64009A07C3 /* GalleryCollectionViewCell.xib */,
 				7DE25D6326B01E21001436DA /* ImageViewController.swift */,
 				7DE25D6426B01E21001436DA /* ImageViewController.xib */,
+				7DE25D6826B0BCC1001436DA /* WebViewController.swift */,
+				7DDB592A26AF3E2100355E3E /* Assets.xcassets */,
 			);
 			path = MobileUpGallery;
 			sourceTree = "<group>";
@@ -226,6 +229,7 @@
 				7D92BC8026AF5B64009A07C3 /* GalleryCollectionViewCell.swift in Sources */,
 				7D92BC7426AF3FC5009A07C3 /* AuthViewController.swift in Sources */,
 				7DDB592426AF3E2000355E3E /* SceneDelegate.swift in Sources */,
+				7DE25D6926B0BCC1001436DA /* WebViewController.swift in Sources */,
 				7DE25D6526B01E21001436DA /* ImageViewController.swift in Sources */,
 				7D92BC7C26AF5AC8009A07C3 /* GalleryCollectionViewController.swift in Sources */,
 			);
