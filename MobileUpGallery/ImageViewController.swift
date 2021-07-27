@@ -15,12 +15,35 @@ class ImageViewController: UIViewController {
 
 	override func viewDidLoad() {
         super.viewDidLoad()
-		navigationItem.title = "Some data"
-		guard let image = image else { return }
-		imageView.image = image
+		setNavigationItem()
+		setImageView()
+		setSaveButton()
         // Do any additional setup after loading the view.
     }
 
+	func setNavigationItem(){
+		navigationItem.title = "Some data"
+	}
+
+	func setImageView(){
+		guard let image = image else { return }
+		imageView.image = image
+	}
+
+	func setSaveButton(){
+		let saveButton = UIBarButtonItem()
+		saveButton.image = UIImage(systemName: "square.and.arrow.up")
+		saveButton.tintColor = .black
+		saveButton.action = #selector(saveImageToGallery(sender:))
+		saveButton.target = self
+
+		navigationItem.setRightBarButton(saveButton, animated: true)
+	}
+
+	@objc func saveImageToGallery(sender: UIBarButtonItem) {
+		print("button click")
+		UIImageWriteToSavedPhotosAlbum(imageView.image!, nil, nil, nil)
+	}
 
     /*
     // MARK: - Navigation
