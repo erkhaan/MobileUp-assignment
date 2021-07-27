@@ -1,10 +1,3 @@
-//
-//  AuthViewController.swift
-//  MobileUpGallery
-//
-//  Created by Erkhaan on 27.07.2021.
-//
-
 import UIKit
 
 class AuthViewController: UIViewController {
@@ -12,7 +5,7 @@ class AuthViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 		setButtonSettings()
-		titleLabel.text = "Mobile Up\nGallery"
+		setLabelSettings()
         // Do any additional setup after loading the view.
     }
 
@@ -29,8 +22,12 @@ class AuthViewController: UIViewController {
 		present(navigationController, animated: true, completion: nil)
 	}
 
+	func setLabelSettings(){
+		titleLabel.text = "Mobile Up\nGallery"
+	}
+
 	func setButtonSettings(){
-		//authButton.layer.cornerRadius = 5
+		authButton.layer.cornerRadius = 8
 	}
 	/*
     // MARK: - Navigation

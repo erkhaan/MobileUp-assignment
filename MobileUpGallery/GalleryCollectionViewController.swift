@@ -16,7 +16,7 @@ class GalleryCollectionViewController: UICollectionViewController {
 		"https://cdn.pixabay.com/photo/2017/09/25/13/12/dog-2785074_1280.jpg",
 		"https://cdn.pixabay.com/photo/2018/03/31/06/31/dog-3277416_1280.jpg",
 		"https://cdn.pixabay.com/photo/2018/05/07/10/48/husky-3380548_1280.jpg",
-		"https://cdn.pixabay.com/photo/2016/05/09/10/42/weimaraner-1381186_1280.jpg"
+		"https://cdn.pixabay.com/photo/2016/05/09/10/42/weimaraner-1381186_1280.jpg",
 	]
 
 
@@ -96,7 +96,23 @@ class GalleryCollectionViewController: UICollectionViewController {
         return cell
     }
 
+	// Sets custom back button for didSelectItemAt
+
+	func setBackButtonSettings(){
+		let backButton = UIBarButtonItem()
+		backButton.title = ""
+		backButton.image = UIImage(named: "Back_button")
+		backButton.tintColor = .black
+		navigationItem.backBarButtonItem = backButton
+	}
+
     // MARK: UICollectionViewDelegate
+
+	override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+		let viewController = ImageViewController()
+		setBackButtonSettings()
+		navigationController?.pushViewController(viewController, animated: true)
+	}
 
     /*
     // Uncomment this method to specify if the specified item should be highlighted during tracking
