@@ -30,10 +30,7 @@ class WebViewController: UIViewController {
 			return
 		}
 		let request = URLRequest(url: url)
-		DispatchQueue.main.async {
-			self.webView.load(request)
-		}
-
+		webView.load(request)
 	}
 
 }
