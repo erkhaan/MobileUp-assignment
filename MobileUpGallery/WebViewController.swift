@@ -30,7 +30,10 @@ class WebViewController: UIViewController {
 			return
 		}
 		let request = URLRequest(url: url)
-		webView.load(request)
+		DispatchQueue.main.async {
+			self.webView.load(request)
+		}
+
 	}
 
 }
@@ -44,11 +47,11 @@ extension WebViewController: WKNavigationDelegate{
 			}
 			let token = components.queryItems?.first(where: {$0.name == "access_token"})?.value
 			if let token = token{
+				decisionHandler(.cancel)
+				self.dismiss(animated: true, completion: nil)
 				delegate?.gotToken(token: token)
+				return
 			}
-			decisionHandler(.cancel)
-			self.dismiss(animated: true, completion: nil)
-			return
 		}
 		decisionHandler(.allow)
 	}
