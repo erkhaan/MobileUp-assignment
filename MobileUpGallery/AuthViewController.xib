@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_0" orientation="portrait" appearance="light"/>
+    <device id="retina6_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -11,25 +11,34 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AuthViewController" customModule="MobileUpGallery" customModuleProvider="target">
             <connections>
+                <outlet property="authButton" destination="Ld8-sc-rcC" id="z8n-Cp-4Je"/>
+                <outlet property="titleLabel" destination="bZv-Hm-ZFL" id="xH8-42-oOL"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mobile Up Gallery" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bZv-Hm-ZFL">
-                    <rect key="frame" x="20" y="90" width="135" height="20.5"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mobile Up Gallery" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bZv-Hm-ZFL">
+                    <rect key="frame" x="20" y="134" width="338.33333333333331" height="48"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="40"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ld8-sc-rcC">
-                    <rect key="frame" x="107.5" y="538" width="105" height="30"/>
-                    <state key="normal" title="Вход через VK"/>
+                    <rect key="frame" x="20" y="814" width="388" height="56"/>
+                    <color key="backgroundColor" systemColor="labelColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="56" id="Kmo-Z8-pAG"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
+                    <state key="normal" title="Вход через VK">
+                        <color key="titleColor" systemColor="systemBackgroundColor"/>
+                    </state>
                     <connections>
-                        <action selector="buttonTapped:" destination="-1" eventType="touchUpInside" id="2eS-Gu-dvm"/>
+                        <action selector="buttonTapped:" destination="-1" eventType="touchUpInside" id="7st-Lc-3m2"/>
                     </connections>
                 </button>
             </subviews>
@@ -38,13 +47,17 @@
             <constraints>
                 <constraint firstItem="bZv-Hm-ZFL" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="0yp-gU-p8i"/>
                 <constraint firstItem="bZv-Hm-ZFL" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="90" id="8nQ-7A-agL"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Ld8-sc-rcC" secondAttribute="bottom" id="aJM-20-VrS"/>
-                <constraint firstItem="Ld8-sc-rcC" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="zky-eD-8IU"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Ld8-sc-rcC" secondAttribute="bottom" constant="22" id="Pfj-KW-wKu"/>
+                <constraint firstItem="Ld8-sc-rcC" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailingMargin" id="dN3-cG-rHi"/>
+                <constraint firstItem="Ld8-sc-rcC" firstAttribute="leading" secondItem="bZv-Hm-ZFL" secondAttribute="leading" id="mOu-Dc-de8"/>
             </constraints>
-            <point key="canvasLocation" x="-213.75" y="88.732394366197184"/>
+            <point key="canvasLocation" x="-214.49275362318843" y="88.392857142857139"/>
         </view>
     </objects>
     <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

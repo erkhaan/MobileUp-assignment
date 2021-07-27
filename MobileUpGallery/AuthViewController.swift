@@ -11,16 +11,26 @@ class AuthViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+		setButtonSettings()
+		titleLabel.text = "Mobile Up\nGallery"
         // Do any additional setup after loading the view.
     }
 
+	@IBOutlet weak var titleLabel: UILabel!
+	
+
+	@IBOutlet weak var authButton: UIButton!
 
 	@IBAction func buttonTapped(_ sender: Any) {
 		let collectionViewController = GalleryCollectionViewController(collectionViewLayout: GalleryCollectionViewController.generateLayout())
+		collectionViewController.navigationItem.title = "Mobile Up Gallery"
 		let navigationController = UINavigationController(rootViewController: collectionViewController)
 		navigationController.modalPresentationStyle = .fullScreen
 		present(navigationController, animated: true, completion: nil)
+	}
+
+	func setButtonSettings(){
+		//authButton.layer.cornerRadius = 5
 	}
 	/*
     // MARK: - Navigation
