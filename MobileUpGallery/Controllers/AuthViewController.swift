@@ -10,7 +10,24 @@ class AuthViewController: UIViewController {
 	}
 
 	private var token: String = ""
-	private var expire: String = ""
+
+	override func viewDidLoad() {
+		super.viewDidLoad()
+		let defaults = UserDefaults.standard
+		token = defaults.string(forKey: "tokenKey")!
+		if(!token.isEmpty){
+			print("current token: \(token)")
+			let tokenValidation = TokenValidation(token: token)
+			tokenValidation.validateToken{result in
+				if(result){
+					print("token is valid, fetching...")
+					self.fetchApi(token: self.token)
+				}
+			}
+		}
+		setButtonSettings()
+		setLabelSettings()
+	}
 
 	func setLabelSettings(){
 		titleLabel.text = "Mobile Up\nGallery"
@@ -41,26 +58,6 @@ class AuthViewController: UIViewController {
 			}
 		}
 	}
-
-	override func viewDidLoad() {
-		super.viewDidLoad()
-		let defaults = UserDefaults.standard
-		token = defaults.string(forKey: "tokenKey")!
-		if(!token.isEmpty){
-			print("current token: \(token)")
-			let tokenValidation = TokenValidation(token: token)
-			tokenValidation.validateToken{result in
-				if(result){
-					print("token is valid, fetching...")
-					self.fetchApi(token: self.token)
-				}
-			}
-		}
-		setButtonSettings()
-		setLabelSettings()
-
-	}
-
 }
 
 extension AuthViewController: WebViewControllerDelegate{
