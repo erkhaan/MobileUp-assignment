@@ -1,5 +1,6 @@
 import UIKit
 import Kingfisher
+import WebKit
 
 private let reuseIdentifier = "Cell"
 
@@ -39,14 +40,17 @@ class GalleryCollectionViewController: UICollectionViewController {
 		dismiss(animated: true, completion: nil)
 		print("exit clicked")
 		delegate?.eraseToken(token: "")
-
 	}
 
-	func removeCookies(){
-		let cookieJar = HTTPCookieStorage.shared
+	func removeCookies() {
+		HTTPCookieStorage.shared.removeCookies(since: Date.distantPast)
+		print("All cookies deleted")
 
-		for cookie in cookieJar.cookies! {
-			cookieJar.deleteCookie(cookie)
+		WKWebsiteDataStore.default().fetchDataRecords(ofTypes: WKWebsiteDataStore.allWebsiteDataTypes()) { records in
+			records.forEach { record in
+				WKWebsiteDataStore.default().removeData(ofTypes: record.dataTypes, for: [record], completionHandler: {})
+				print("Cookie ::: \(record) deleted")
+			}
 		}
 	}
 
