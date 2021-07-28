@@ -38,3 +38,12 @@ enum TypeEnum: String, Codable {
 	case y = "y"
 	case z = "z"
 }
+
+struct ValidationWelcome: Codable{
+	let response: ValidationResponse
+}
+
+struct ValidationResponse: Codable{
+	let success: Int
+	let userId, date, expire: Int?
+}

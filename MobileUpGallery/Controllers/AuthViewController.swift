@@ -27,8 +27,12 @@ class AuthViewController: UIViewController {
 			present(webViewController, animated: true, completion: nil)
 			return
 		}
-		if(TokenValidation.shared.validateToken(token: token)){
-			fetchApi(token: token)
+		let tokenValidation = TokenValidation(token: token)
+		tokenValidation.validateToken{result in
+			if(result){
+				print("fetching...")
+				self.fetchApi(token: self.token)
+			}
 		}
 	}
 
