@@ -17,7 +17,7 @@ class AuthViewController: UIViewController {
 		token = defaults.string(forKey: "tokenKey")!
 		if(!token.isEmpty){
 			print("current token: \(token)")
-			let tokenValidation = TokenValidation(token: token)
+			let tokenValidation = TokenValidationService(token: token)
 			tokenValidation.validateToken{result in
 				if(result){
 					print("token is valid, fetching...")
