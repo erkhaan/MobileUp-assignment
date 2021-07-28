@@ -36,7 +36,6 @@ class ImageViewController: UIViewController {
 			print("wrong imageView url")
 			return
 		}
-		print(link)
 		imageView.kf.setImage(with: url)
 	}
 
@@ -51,7 +50,6 @@ class ImageViewController: UIViewController {
 	}
 
 	@objc func saveImageToGallery(sender: UIBarButtonItem) {
-		print("button click")
 		UIImageWriteToSavedPhotosAlbum(imageView.image!, nil, nil, nil)
 	}
 }
