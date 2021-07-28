@@ -7,6 +7,11 @@
 
 import Foundation
 
-class TokenValidation(){
-	
+class TokenValidation{
+	static let shared = TokenValidation()
+
+	func validateToken(token: String) -> Bool{
+		print(token)
+		return true
+	}
 }

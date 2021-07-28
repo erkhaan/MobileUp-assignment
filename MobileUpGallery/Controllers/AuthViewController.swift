@@ -27,7 +27,25 @@ class AuthViewController: UIViewController {
 			present(webViewController, animated: true, completion: nil)
 			return
 		}
-		
+		if(TokenValidation.shared.validateToken(token: token)){
+			fetchApi(token: token)
+		}
+	}
+
+	func fetchApi(token: String){
+		DispatchQueue.main.async {
+			ApiService.fetch(token: token){ response in
+				// collectionView setup
+				let collectionViewController = GalleryCollectionViewController(collectionViewLayout: UICollectionViewLayout())
+				collectionViewController.navigationItem.title = "Mobile Up Gallery"
+				collectionViewController.items = response
+
+				// navigationController setup
+				let navigationController = UINavigationController(rootViewController: collectionViewController)
+				navigationController.modalPresentationStyle = .fullScreen
+				self.present(navigationController, animated: true, completion: nil)
+			}
+		}
 	}
 
 	override func viewDidLoad() {
@@ -52,19 +70,8 @@ extension AuthViewController: WebViewControllerDelegate{
 		defaults.synchronize()
 		print(token)
 		print(expire)
-
-		DispatchQueue.main.async {
-			ApiService.fetch(token: token){ response in
-				// collectionView setup
-				let collectionViewController = GalleryCollectionViewController(collectionViewLayout: UICollectionViewLayout())
-				collectionViewController.navigationItem.title = "Mobile Up Gallery"
-				collectionViewController.items = response
-
-				// navigationController setup
-				let navigationController = UINavigationController(rootViewController: collectionViewController)
-				navigationController.modalPresentationStyle = .fullScreen
-				self.present(navigationController, animated: true, completion: nil)
-			}
-		}
+		fetchApi(token: token)
 	}
+
+
 }

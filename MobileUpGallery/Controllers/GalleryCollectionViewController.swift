@@ -5,20 +5,12 @@ private let reuseIdentifier = "Cell"
 
 class GalleryCollectionViewController: UICollectionViewController {
 
-	/*private var items = [
-		"https://cdn.pixabay.com/photo/2017/09/25/13/12/dog-2785074_1280.jpg",
-		"https://cdn.pixabay.com/photo/2018/03/31/06/31/dog-3277416_1280.jpg",
-		"https://cdn.pixabay.com/photo/2018/05/07/10/48/husky-3380548_1280.jpg",
-		"https://cdn.pixabay.com/photo/2016/05/09/10/42/weimaraner-1381186_1280.jpg",
-	]*/
-
 	var items: [Item] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
 		self.collectionView.backgroundColor = .systemBackground
         // Register cell classes
-		print(items.count)
 		let nib = UINib(nibName: "GalleryCollectionViewCell", bundle: nil)
 		self.collectionView.register(nib, forCellWithReuseIdentifier: "Cell")
 		collectionView.setCollectionViewLayout(GalleryCollectionViewController.generateLayout(), animated: false)
@@ -99,7 +91,6 @@ class GalleryCollectionViewController: UICollectionViewController {
 		print("Cell \(indexPath.row + 1) clicked")
 		let viewController = ImageViewController()
 		setBackButtonSettings()
-		//let cell = collectionView.cellForItem(at: indexPath) as! GalleryCollectionViewCell
 
 		let itemSizeIndex = 6
 		viewController.imageLink = items[indexPath.item].sizes[itemSizeIndex].url
