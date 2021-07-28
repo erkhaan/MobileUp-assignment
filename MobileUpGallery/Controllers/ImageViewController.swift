@@ -1,10 +1,3 @@
-//
-//  ImageViewController.swift
-//  MobileUpGallery
-//
-//  Created by Erkhaan on 27.07.2021.
-//
-
 import UIKit
 import Kingfisher
 
@@ -12,19 +5,13 @@ class ImageViewController: UIViewController {
 
 	@IBOutlet weak var imageView: UIImageView!
 
-	//var image: UIImage?
 	var imageLink: String?
 
 	override func viewDidLoad() {
         super.viewDidLoad()
-		setNavigationItem()
 		setImageView()
 		setSaveButton()
     }
-
-	func setNavigationItem(){
-		//navigationItem.title = "Some data"
-	}
 
 	func setImageView(){
 		guard let link = imageLink else{
