@@ -49,6 +49,13 @@ class ImageViewController: UIViewController {
 			print(err)
 			return
 		}
-		print("success")
+		//print("success")
+		showAlert()
+	}
+
+	func showAlert(){
+		let alert = UIAlertController(title: "", message: "Сохранено", preferredStyle: .alert)
+		alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+		self.present(alert, animated: true, completion: nil)
 	}
 }
