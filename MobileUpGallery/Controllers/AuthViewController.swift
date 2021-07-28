@@ -21,13 +21,9 @@ class AuthViewController: UIViewController {
 	}
 
 	func updateData(){
-		guard !token.isEmpty else{
-			let webViewController = WebViewController()
-			webViewController.delegate = self
-			present(webViewController, animated: true, completion: nil)
-			return
-		}
-
+		let webViewController = WebViewController()
+		webViewController.delegate = self
+		present(webViewController, animated: true, completion: nil)
 	}
 
 	func fetchApi(token: String){
