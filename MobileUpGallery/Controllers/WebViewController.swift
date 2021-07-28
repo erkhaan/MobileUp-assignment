@@ -26,12 +26,11 @@ class WebViewController: UIViewController {
 	func makeRequest(){
 		let authUrl = URL(string: "https://oauth.vk.com/authorize?client_id=7913148&display=mobile&redirect_uri=https://oauth.vk.com/blank.html&scope=photos&response_type=token&v=5.131")
 
-		// https://oauth.vk.com/authorize?client_id=1&display=page&redirect_uri=http://example.com/callback&scope=friends&response_type=token&v=5.131&state=123456
-		
 		guard let url = authUrl else{
 			print("wrong url")
 			return
 		}
+		
 		let request = URLRequest(url: url)
 		webView.load(request)
 		webView.navigationDelegate = self
@@ -39,6 +38,7 @@ class WebViewController: UIViewController {
 }
 
 extension WebViewController: WKNavigationDelegate{
+
 	func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
 		if let url = navigationAction.request.url{
 			let targetString = url.absoluteString.replacingOccurrences(of: "#", with: "?")
