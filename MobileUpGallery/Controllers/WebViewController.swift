@@ -15,6 +15,7 @@ class WebViewController: UIViewController {
         super.viewDidLoad()
 		setupWebView()
 		makeRequest()
+
     }
 
 	func setupWebView(){

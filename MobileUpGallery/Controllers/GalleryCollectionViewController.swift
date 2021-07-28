@@ -3,7 +3,13 @@ import Kingfisher
 
 private let reuseIdentifier = "Cell"
 
+protocol GalleryCollectionViewControllerDelegate: class {
+	func eraseToken(token: String)
+}
+
 class GalleryCollectionViewController: UICollectionViewController {
+
+	weak var delegate: GalleryCollectionViewControllerDelegate?
 
 	var items: [Item] = []
 
@@ -31,6 +37,9 @@ class GalleryCollectionViewController: UICollectionViewController {
 	@objc func exitButtonTapped(sender: UIBarButtonItem) {
 		removeCookies()
 		dismiss(animated: true, completion: nil)
+		print("exit clicked")
+		delegate?.eraseToken(token: "")
+
 	}
 
 	func removeCookies(){

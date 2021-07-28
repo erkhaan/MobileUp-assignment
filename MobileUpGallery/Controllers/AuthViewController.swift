@@ -15,8 +15,8 @@ class AuthViewController: UIViewController {
 		super.viewDidLoad()
 		let defaults = UserDefaults.standard
 		token = defaults.string(forKey: "tokenKey")!
+		print("current token: \(token)")
 		if(!token.isEmpty){
-			print("current token: \(token)")
 			let tokenValidation = TokenValidationService(token: token)
 			tokenValidation.validateToken{result in
 				if(result){
@@ -50,6 +50,7 @@ class AuthViewController: UIViewController {
 				let collectionViewController = GalleryCollectionViewController(collectionViewLayout: UICollectionViewLayout())
 				collectionViewController.navigationItem.title = "Mobile Up Gallery"
 				collectionViewController.items = response
+				collectionViewController.delegate = self
 
 				// navigationController setup
 				let navigationController = UINavigationController(rootViewController: collectionViewController)
@@ -68,4 +69,16 @@ extension AuthViewController: WebViewControllerDelegate{
 		defaults.synchronize()
 		fetchApi(token: token)
 	}
+}
+
+extension AuthViewController: GalleryCollectionViewControllerDelegate{
+	
+	func eraseToken(token: String) {
+		self.token = token
+		print("Token after exit: \(token)")
+		let defaults = UserDefaults.standard
+		defaults.set(token, forKey: "tokenKey")
+		defaults.synchronize()
+	}
+	
 }
