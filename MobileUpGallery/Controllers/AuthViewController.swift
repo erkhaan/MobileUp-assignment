@@ -78,6 +78,4 @@ extension AuthViewController: WebViewControllerDelegate{
 		defaults.synchronize()
 		fetchApi(token: token)
 	}
-
-
 }

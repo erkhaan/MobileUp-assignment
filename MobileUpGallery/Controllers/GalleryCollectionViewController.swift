@@ -56,8 +56,7 @@ class GalleryCollectionViewController: UICollectionViewController {
     // MARK: UICollectionViewDataSource
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
-		items.count
+        items.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -88,7 +87,6 @@ class GalleryCollectionViewController: UICollectionViewController {
     // MARK: UICollectionViewDelegate
 
 	override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-		print("Cell \(indexPath.row + 1) clicked")
 		let viewController = ImageViewController()
 		setBackButtonSettings()
 
