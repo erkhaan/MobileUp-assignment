@@ -37,6 +37,18 @@ class ImageViewController: UIViewController {
 	}
 
 	@objc func saveImageToGallery(sender: UIBarButtonItem) {
-		UIImageWriteToSavedPhotosAlbum(imageView.image!, nil, nil, nil)
+		guard let image = imageView.image{
+			print("image is nil")
+			return
+		}
+		UIImageWriteToSavedPhotosAlbum(image, self, #selector(savedImage), nil)
+	}
+
+	@objc func savedImage(_ image: UIImage,error: Error?,contextInfo:UnsafeRawPointer){
+		if let err = error {
+			print(err)
+			return
+		}
+		print("success")
 	}
 }

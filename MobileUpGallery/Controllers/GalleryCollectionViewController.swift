@@ -38,18 +38,18 @@ class GalleryCollectionViewController: UICollectionViewController {
 	@objc func exitButtonTapped(sender: UIBarButtonItem) {
 		removeCookies()
 		dismiss(animated: true, completion: nil)
-		print("exit clicked")
+		//print("exit clicked")
 		delegate?.eraseToken(token: "")
 	}
 
 	func removeCookies() {
 		HTTPCookieStorage.shared.removeCookies(since: Date.distantPast)
-		print("All cookies deleted")
+		//print("All cookies deleted")
 
 		WKWebsiteDataStore.default().fetchDataRecords(ofTypes: WKWebsiteDataStore.allWebsiteDataTypes()) { records in
 			records.forEach { record in
 				WKWebsiteDataStore.default().removeData(ofTypes: record.dataTypes, for: [record], completionHandler: {})
-				print("Cookie ::: \(record) deleted")
+				//print("Cookie ::: \(record) deleted")
 			}
 		}
 	}
