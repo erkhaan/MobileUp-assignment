@@ -27,13 +27,7 @@ class AuthViewController: UIViewController {
 			present(webViewController, animated: true, completion: nil)
 			return
 		}
-		let tokenValidation = TokenValidation(token: token)
-		tokenValidation.validateToken{result in
-			if(result){
-				print("fetching...")
-				self.fetchApi(token: self.token)
-			}
-		}
+
 	}
 
 	func fetchApi(token: String){
@@ -57,9 +51,19 @@ class AuthViewController: UIViewController {
 		let defaults = UserDefaults.standard
 		token = defaults.string(forKey: "tokenKey")!
 		expire = defaults.string(forKey: "expireKey")!
+		if(!token.isEmpty){
+			print("current token: \(token)")
+			let tokenValidation = TokenValidation(token: token)
+			tokenValidation.validateToken{result in
+				if(result){
+					print("token is valid, fetching...")
+					self.fetchApi(token: self.token)
+				}
+			}
+		}
 		setButtonSettings()
 		setLabelSettings()
-		print("current token: \(token)")
+
 	}
 
 }
@@ -72,8 +76,6 @@ extension AuthViewController: WebViewControllerDelegate{
 		defaults.set(token, forKey: "tokenKey")
 		defaults.set(expire, forKey: "expireKey")
 		defaults.synchronize()
-		print(token)
-		print(expire)
 		fetchApi(token: token)
 	}
 
