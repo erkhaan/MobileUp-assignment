@@ -22,10 +22,23 @@ class GalleryCollectionViewController: UICollectionViewController {
 		let exitButton = UIBarButtonItem()
 		exitButton.title = "Выход"
 		exitButton.tintColor = .black
-		//exitButton.action = #selector(saveImageToGallery(sender:))
+		exitButton.action = #selector(exitButtonTapped(sender:))
 		exitButton.target = self
 
 		navigationItem.setRightBarButton(exitButton, animated: true)
+	}
+
+	@objc func exitButtonTapped(sender: UIBarButtonItem) {
+		removeCookies()
+		dismiss(animated: true, completion: nil)
+	}
+
+	func removeCookies(){
+		let cookieJar = HTTPCookieStorage.shared
+
+		for cookie in cookieJar.cookies! {
+			cookieJar.deleteCookie(cookie)
+		}
 	}
 
 	func registerCell(){
