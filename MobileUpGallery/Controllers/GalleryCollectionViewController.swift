@@ -34,11 +34,23 @@ class GalleryCollectionViewController: UICollectionViewController {
 	}
 
 	func setLayout(){
-		collectionView.setCollectionViewLayout(GalleryCollectionViewController.generateLayout(), animated: false)
+		collectionView.setCollectionViewLayout(generateLayout(), animated: false)
 	}
 
-	static func generateLayout() -> UICollectionViewLayout{
+	private func generateLayout() -> UICollectionViewLayout{
+
 		let spacing: CGFloat = 1
+
+		let item = setItemLayout(spacing)
+		let group = setGroupLayout(spacing, item: item)
+		let section = NSCollectionLayoutSection(group: group)
+		section.interGroupSpacing = spacing
+
+		let layout = UICollectionViewCompositionalLayout(section: section)
+		return layout
+	}
+
+	private func setItemLayout(_ spacing: CGFloat) -> NSCollectionLayoutItem{
 		let itemSize = NSCollectionLayoutSize(
 			widthDimension: .fractionalWidth(1),
 			heightDimension: .fractionalHeight(1))
@@ -49,7 +61,10 @@ class GalleryCollectionViewController: UICollectionViewController {
 			bottom: 0,
 			trailing: spacing
 		)
+		return item
+	}
 
+	private func setGroupLayout(_ spacing: CGFloat,item: NSCollectionLayoutItem) -> NSCollectionLayoutGroup{
 		let groupSize = NSCollectionLayoutSize(
 			widthDimension: .fractionalWidth(1),
 			heightDimension: .fractionalWidth(0.5)
@@ -63,14 +78,7 @@ class GalleryCollectionViewController: UICollectionViewController {
 			bottom: 0,
 			trailing: spacing
 		)
-
-		let section = NSCollectionLayoutSection(group: group)
-
-		section.interGroupSpacing = spacing
-
-		let layout = UICollectionViewCompositionalLayout(section: section)
-
-		return layout
+		return group
 	}
 
     // MARK: UICollectionViewDataSource
