@@ -9,13 +9,33 @@ class GalleryCollectionViewController: UICollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-		self.collectionView.backgroundColor = .systemBackground
+		setupViews()
+		registerCell()
+		setLayout()
+    }
+
+	func setupViews(){
+		collectionView.backgroundColor = .systemBackground
 		setExitButton()
-        // Register cell classes
+	}
+	func setExitButton(){
+		let exitButton = UIBarButtonItem()
+		exitButton.title = "Выход"
+		exitButton.tintColor = .black
+		//exitButton.action = #selector(saveImageToGallery(sender:))
+		exitButton.target = self
+
+		navigationItem.setRightBarButton(exitButton, animated: true)
+	}
+
+	func registerCell(){
 		let nib = UINib(nibName: "GalleryCollectionViewCell", bundle: nil)
 		self.collectionView.register(nib, forCellWithReuseIdentifier: "Cell")
+	}
+
+	func setLayout(){
 		collectionView.setCollectionViewLayout(GalleryCollectionViewController.generateLayout(), animated: false)
-    }
+	}
 
 	static func generateLayout() -> UICollectionViewLayout{
 		let spacing: CGFloat = 1
@@ -52,17 +72,6 @@ class GalleryCollectionViewController: UICollectionViewController {
 
 		return layout
 	}
-
-	func setExitButton(){
-		let exitButton = UIBarButtonItem()
-		exitButton.title = "Выход"
-		exitButton.tintColor = .black
-		//exitButton.action = #selector(saveImageToGallery(sender:))
-		exitButton.target = self
-
-		navigationItem.setRightBarButton(exitButton, animated: true)
-	}
-
 
     // MARK: UICollectionViewDataSource
 
