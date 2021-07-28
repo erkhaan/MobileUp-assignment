@@ -50,7 +50,6 @@ class AuthViewController: UIViewController {
 		super.viewDidLoad()
 		let defaults = UserDefaults.standard
 		token = defaults.string(forKey: "tokenKey")!
-		expire = defaults.string(forKey: "expireKey")!
 		if(!token.isEmpty){
 			print("current token: \(token)")
 			let tokenValidation = TokenValidation(token: token)
@@ -69,12 +68,10 @@ class AuthViewController: UIViewController {
 }
 
 extension AuthViewController: WebViewControllerDelegate{
-	func gotToken(token: String,expire: String) {
+	func gotToken(token: String) {
 		self.token = token
-		self.expire = expire
 		let defaults = UserDefaults.standard
 		defaults.set(token, forKey: "tokenKey")
-		defaults.set(expire, forKey: "expireKey")
 		defaults.synchronize()
 		fetchApi(token: token)
 	}

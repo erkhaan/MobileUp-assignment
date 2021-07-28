@@ -2,7 +2,7 @@ import UIKit
 import WebKit
 
 protocol WebViewControllerDelegate: class{
-	func gotToken(token: String,expire: String)
+	func gotToken(token: String)
 }
 
 class WebViewController: UIViewController {
@@ -45,14 +45,9 @@ extension WebViewController: WKNavigationDelegate{
 			if let components = URLComponents(string: targetString){
 				let token = components.queryItems?.first(where: {$0.name == "access_token"})?.value
 				if let token = token{
-					let expireIn = components.queryItems?.first(where: {$0.name == "expires_in"})?.value//
-					guard let expire = expireIn else{
-						print("wrong expire_in")
-						return
-					}
 					dismiss(animated: true, completion: nil)
 					decisionHandler(.cancel)
-					delegate?.gotToken(token: token,expire: expire)
+					delegate?.gotToken(token: token)
 					return
 				}
 			}

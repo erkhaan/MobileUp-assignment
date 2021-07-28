@@ -16,9 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		// Override point for customization after application launch.
 		let defaults = UserDefaults.standard
 		let tokenDefaultValue = ["tokenKey": ""]
-		let expireDefaultValue = ["expireKey": ""]
 		defaults.register(defaults: tokenDefaultValue)
-		defaults.register(defaults: expireDefaultValue)
 		return true
 	}
 

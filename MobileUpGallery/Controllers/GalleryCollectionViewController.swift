@@ -10,6 +10,7 @@ class GalleryCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 		self.collectionView.backgroundColor = .systemBackground
+		setExitButton()
         // Register cell classes
 		let nib = UINib(nibName: "GalleryCollectionViewCell", bundle: nil)
 		self.collectionView.register(nib, forCellWithReuseIdentifier: "Cell")
@@ -50,6 +51,16 @@ class GalleryCollectionViewController: UICollectionViewController {
 		let layout = UICollectionViewCompositionalLayout(section: section)
 
 		return layout
+	}
+
+	func setExitButton(){
+		let exitButton = UIBarButtonItem()
+		exitButton.title = "Выход"
+		exitButton.tintColor = .black
+		//exitButton.action = #selector(saveImageToGallery(sender:))
+		exitButton.target = self
+
+		navigationItem.setRightBarButton(exitButton, animated: true)
 	}
 
 
