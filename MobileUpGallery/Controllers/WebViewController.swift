@@ -2,7 +2,7 @@ import UIKit
 import WebKit
 
 protocol WebViewControllerDelegate: class{
-	func gotToken(token: String)
+	func gotToken(token: String,expire: String)
 }
 
 class WebViewController: UIViewController {
@@ -24,7 +24,10 @@ class WebViewController: UIViewController {
 	}
 
 	func makeRequest(){
-		let authUrl = URL(string: "https://oauth.vk.com/authorize?client_id=7908959&display=mobile&redirect_uri=https://oauth.vk.com/blank.html&scope=photos&response_type=token&v=5.131")
+		let authUrl = URL(string: "https://oauth.vk.com/authorize?client_id=7913148&display=mobile&redirect_uri=https://oauth.vk.com/blank.html&scope=photos&response_type=token&v=5.131")
+
+		// https://oauth.vk.com/authorize?client_id=1&display=page&redirect_uri=http://example.com/callback&scope=friends&response_type=token&v=5.131&state=123456
+		
 		guard let url = authUrl else{
 			print("wrong url")
 			return
@@ -42,9 +45,14 @@ extension WebViewController: WKNavigationDelegate{
 			if let components = URLComponents(string: targetString){
 				let token = components.queryItems?.first(where: {$0.name == "access_token"})?.value
 				if let token = token{
+					let expireIn = components.queryItems?.first(where: {$0.name == "expires_in"})?.value//
+					guard let expire = expireIn else{
+						print("wrong expire_in")
+						return
+					}
 					dismiss(animated: true, completion: nil)
 					decisionHandler(.cancel)
-					delegate?.gotToken(token: token)
+					delegate?.gotToken(token: token,expire: expire)
 					return
 				}
 			}

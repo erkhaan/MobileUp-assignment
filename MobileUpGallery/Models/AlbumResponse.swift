@@ -11,11 +11,11 @@ struct Response: Codable {
 
 // MARK: - Item
 struct Item: Codable {
-	let albumID, date, id, ownerID: Int
-	let hasTags: Bool
+	let album_id, date, id, owner_id: Int
+	let has_tags: Bool
 	let sizes: [Size]
 	let text: String
-	let userID: Int
+	let user_id: Int
 }
 
 // MARK: - Size

@@ -6,28 +6,38 @@
 //
 
 import UIKit
+import Kingfisher
 
 class ImageViewController: UIViewController {
 
 	@IBOutlet weak var imageView: UIImageView!
 
-	var image: UIImage?
+	//var image: UIImage?
+	var imageLink: String?
 
 	override func viewDidLoad() {
         super.viewDidLoad()
 		setNavigationItem()
 		setImageView()
 		setSaveButton()
-        // Do any additional setup after loading the view.
     }
 
 	func setNavigationItem(){
-		navigationItem.title = "Some data"
+		//navigationItem.title = "Some data"
 	}
 
 	func setImageView(){
-		guard let image = image else { return }
-		imageView.image = image
+		guard let link = imageLink else{
+			print("imageLink is nil")
+			return
+		}
+		let targetUrl = URL(string: link)
+		guard let url = targetUrl else {
+			print("wrong imageView url")
+			return
+		}
+		print(link)
+		imageView.kf.setImage(with: url)
 	}
 
 	func setSaveButton(){
@@ -44,15 +54,4 @@ class ImageViewController: UIViewController {
 		print("button click")
 		UIImageWriteToSavedPhotosAlbum(imageView.image!, nil, nil, nil)
 	}
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

@@ -10,6 +10,7 @@
 		67052B4219158DBFFB3827E0 /* Pods_MobileUpGallery.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDC0E17304D687BCC733DFC6 /* Pods_MobileUpGallery.framework */; };
 		7D0A472726B0F35A00B28B6D /* AlbumResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0A472626B0F35A00B28B6D /* AlbumResponse.swift */; };
 		7D0A472A26B0F3FF00B28B6D /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0A472926B0F3FF00B28B6D /* API.swift */; };
+		7D0A472E26B126A100B28B6D /* TokenValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0A472D26B126A100B28B6D /* TokenValidation.swift */; };
 		7D92BC7426AF3FC5009A07C3 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D92BC7226AF3FC5009A07C3 /* AuthViewController.swift */; };
 		7D92BC7526AF3FC5009A07C3 /* AuthViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D92BC7326AF3FC5009A07C3 /* AuthViewController.xib */; };
 		7D92BC7C26AF5AC8009A07C3 /* GalleryCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D92BC7B26AF5AC8009A07C3 /* GalleryCollectionViewController.swift */; };
@@ -27,6 +28,7 @@
 /* Begin PBXFileReference section */
 		7D0A472626B0F35A00B28B6D /* AlbumResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumResponse.swift; sourceTree = "<group>"; };
 		7D0A472926B0F3FF00B28B6D /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		7D0A472D26B126A100B28B6D /* TokenValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenValidation.swift; sourceTree = "<group>"; };
 		7D92BC7226AF3FC5009A07C3 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		7D92BC7326AF3FC5009A07C3 /* AuthViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AuthViewController.xib; sourceTree = "<group>"; };
 		7D92BC7B26AF5AC8009A07C3 /* GalleryCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCollectionViewController.swift; sourceTree = "<group>"; };
@@ -67,6 +69,36 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		7D0A473026B126B900B28B6D /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				7D0A472926B0F3FF00B28B6D /* API.swift */,
+				7D0A472D26B126A100B28B6D /* TokenValidation.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		7D0A473126B126C700B28B6D /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				7D92BC7226AF3FC5009A07C3 /* AuthViewController.swift */,
+				7D92BC7326AF3FC5009A07C3 /* AuthViewController.xib */,
+				7D92BC7B26AF5AC8009A07C3 /* GalleryCollectionViewController.swift */,
+				7DE25D6326B01E21001436DA /* ImageViewController.swift */,
+				7DE25D6426B01E21001436DA /* ImageViewController.xib */,
+				7DE25D6826B0BCC1001436DA /* WebViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		7D0A473226B126E100B28B6D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7D0A472626B0F35A00B28B6D /* AlbumResponse.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		7DDB591526AF3E2000355E3E = {
 			isa = PBXGroup;
 			children = (
@@ -88,21 +120,16 @@
 		7DDB592026AF3E2000355E3E /* MobileUpGallery */ = {
 			isa = PBXGroup;
 			children = (
+				7D0A473226B126E100B28B6D /* Models */,
+				7D0A473126B126C700B28B6D /* Controllers */,
+				7D0A473026B126B900B28B6D /* Services */,
 				7DDB592126AF3E2000355E3E /* AppDelegate.swift */,
 				7DDB592326AF3E2000355E3E /* SceneDelegate.swift */,
 				7DDB592C26AF3E2100355E3E /* LaunchScreen.storyboard */,
 				7DDB592F26AF3E2100355E3E /* Info.plist */,
-				7D92BC7226AF3FC5009A07C3 /* AuthViewController.swift */,
-				7D92BC7326AF3FC5009A07C3 /* AuthViewController.xib */,
-				7D92BC7B26AF5AC8009A07C3 /* GalleryCollectionViewController.swift */,
 				7D92BC7E26AF5B64009A07C3 /* GalleryCollectionViewCell.swift */,
 				7D92BC7F26AF5B64009A07C3 /* GalleryCollectionViewCell.xib */,
-				7DE25D6326B01E21001436DA /* ImageViewController.swift */,
-				7DE25D6426B01E21001436DA /* ImageViewController.xib */,
-				7DE25D6826B0BCC1001436DA /* WebViewController.swift */,
 				7DDB592A26AF3E2100355E3E /* Assets.xcassets */,
-				7D0A472626B0F35A00B28B6D /* AlbumResponse.swift */,
-				7D0A472926B0F3FF00B28B6D /* API.swift */,
 			);
 			path = MobileUpGallery;
 			sourceTree = "<group>";
@@ -233,6 +260,7 @@
 			files = (
 				7DDB592226AF3E2000355E3E /* AppDelegate.swift in Sources */,
 				7D92BC8026AF5B64009A07C3 /* GalleryCollectionViewCell.swift in Sources */,
+				7D0A472E26B126A100B28B6D /* TokenValidation.swift in Sources */,
 				7D92BC7426AF3FC5009A07C3 /* AuthViewController.swift in Sources */,
 				7DDB592426AF3E2000355E3E /* SceneDelegate.swift in Sources */,
 				7DE25D6926B0BCC1001436DA /* WebViewController.swift in Sources */,
