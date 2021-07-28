@@ -37,7 +37,7 @@ class ImageViewController: UIViewController {
 	}
 
 	@objc func saveImageToGallery(sender: UIBarButtonItem) {
-		guard let image = imageView.image{
+		guard let image = imageView.image else{
 			print("image is nil")
 			return
 		}
