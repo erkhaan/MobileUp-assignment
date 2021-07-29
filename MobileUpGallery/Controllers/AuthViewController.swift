@@ -15,12 +15,10 @@ class AuthViewController: UIViewController {
 		super.viewDidLoad()
 		let defaults = UserDefaults.standard
 		token = defaults.string(forKey: "tokenKey")!
-		//print("current token: \(token)")
 		if(!token.isEmpty){
 			let tokenValidation = TokenValidationService(token: token)
 			tokenValidation.validateToken{result in
 				if(result){
-					//print("token is valid, fetching...")
 					self.fetchApi(token: self.token)
 				}
 			}
@@ -75,7 +73,6 @@ extension AuthViewController: GalleryCollectionViewControllerDelegate{
 	
 	func eraseToken(token: String) {
 		self.token = token
-		//print("Token after exit: \(token)")
 		let defaults = UserDefaults.standard
 		defaults.set(token, forKey: "tokenKey")
 		defaults.synchronize()

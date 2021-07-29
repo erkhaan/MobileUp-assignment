@@ -1,10 +1,3 @@
-//
-//  SceneDelegate.swift
-//  MobileUpGallery
-//
-//  Created by Erkhaan on 27.07.2021.
-//
-
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {

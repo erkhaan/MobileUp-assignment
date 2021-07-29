@@ -49,7 +49,6 @@ class ImageViewController: UIViewController {
 			print(err)
 			return
 		}
-		//print("success")
 		showAlert()
 	}
 
