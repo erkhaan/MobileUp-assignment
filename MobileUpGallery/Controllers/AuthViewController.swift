@@ -1,16 +1,16 @@
 import UIKit
 
 class AuthViewController: UIViewController {
-
+	
 	@IBOutlet weak var titleLabel: UILabel!
 	@IBOutlet weak var authButton: UIButton!
-
+	
 	@IBAction func buttonTapped(_ sender: Any) {
 		updateData()
 	}
-
+	
 	private var token: String = ""
-
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		let defaults = UserDefaults.standard
@@ -26,21 +26,21 @@ class AuthViewController: UIViewController {
 		setButtonSettings()
 		setLabelSettings()
 	}
-
+	
 	func setLabelSettings(){
 		titleLabel.text = "Mobile Up\nGallery"
 	}
-
+	
 	func setButtonSettings(){
 		authButton.layer.cornerRadius = 8
 	}
-
+	
 	func updateData(){
 		let webViewController = WebViewController()
 		webViewController.delegate = self
 		present(webViewController, animated: true, completion: nil)
 	}
-
+	
 	func fetchApi(token: String){
 		DispatchQueue.main.async {
 			ApiService.fetch(token: token){ response in
@@ -49,7 +49,7 @@ class AuthViewController: UIViewController {
 				collectionViewController.navigationItem.title = "Mobile Up Gallery"
 				collectionViewController.items = response
 				collectionViewController.delegate = self
-
+				
 				// navigationController setup
 				let navigationController = UINavigationController(rootViewController: collectionViewController)
 				navigationController.modalPresentationStyle = .fullScreen

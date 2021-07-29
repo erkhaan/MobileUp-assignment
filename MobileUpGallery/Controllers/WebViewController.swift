@@ -6,27 +6,27 @@ protocol WebViewControllerDelegate: class{
 }
 
 class WebViewController: UIViewController {
-
+	
 	weak var delegate: WebViewControllerDelegate?
-
+	
 	private var webView: WKWebView = WKWebView()
-
+	
 	override func viewDidLoad() {
-        super.viewDidLoad()
+		super.viewDidLoad()
 		setupWebView()
 		makeRequest()
-
-    }
-
+		
+	}
+	
 	func setupWebView(){
 		view.backgroundColor = .white
 		webView.frame = view.bounds
 		view.addSubview(webView)
 	}
-
+	
 	func makeRequest(){
 		let authUrl = URL(string: "https://oauth.vk.com/authorize?client_id=7913148&display=mobile&redirect_uri=https://oauth.vk.com/blank.html&scope=photos&response_type=token&v=5.131")
-
+		
 		guard let url = authUrl else{
 			print("wrong url")
 			return
@@ -39,7 +39,7 @@ class WebViewController: UIViewController {
 }
 
 extension WebViewController: WKNavigationDelegate{
-
+	
 	func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
 		if let url = navigationAction.request.url{
 			let targetString = url.absoluteString.replacingOccurrences(of: "#", with: "?")
@@ -55,7 +55,7 @@ extension WebViewController: WKNavigationDelegate{
 		}
 		decisionHandler(.allow)
 	}
-
+	
 	func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
 		print("\(error)")
 		dismiss(animated: true, completion: nil)

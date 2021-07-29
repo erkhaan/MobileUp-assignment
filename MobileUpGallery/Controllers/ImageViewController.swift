@@ -2,17 +2,17 @@ import UIKit
 import Kingfisher
 
 class ImageViewController: UIViewController {
-
+	
 	@IBOutlet weak var imageView: UIImageView!
-
+	
 	var imageLink: String?
-
+	
 	override func viewDidLoad() {
-        super.viewDidLoad()
+		super.viewDidLoad()
 		setImageView()
 		setSaveButton()
-    }
-
+	}
+	
 	func setImageView(){
 		guard let link = imageLink else{
 			print("imageLink is nil")
@@ -25,17 +25,17 @@ class ImageViewController: UIViewController {
 		}
 		imageView.kf.setImage(with: url)
 	}
-
+	
 	func setSaveButton(){
 		let saveButton = UIBarButtonItem()
 		saveButton.image = UIImage(systemName: "square.and.arrow.up")
 		saveButton.tintColor = .black
 		saveButton.action = #selector(saveImageToGallery(sender:))
 		saveButton.target = self
-
+		
 		navigationItem.setRightBarButton(saveButton, animated: true)
 	}
-
+	
 	@objc func saveImageToGallery(sender: UIBarButtonItem) {
 		guard let image = imageView.image else{
 			print("image is nil")
@@ -43,7 +43,7 @@ class ImageViewController: UIViewController {
 		}
 		UIImageWriteToSavedPhotosAlbum(image, self, #selector(savedImage), nil)
 	}
-
+	
 	@objc func savedImage(_ image: UIImage,error: Error?,contextInfo:UnsafeRawPointer){
 		if let err = error {
 			print(err)
@@ -51,7 +51,7 @@ class ImageViewController: UIViewController {
 		}
 		showAlert()
 	}
-
+	
 	func showAlert(){
 		let alert = UIAlertController(title: "", message: "Сохранено", preferredStyle: .alert)
 		alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
