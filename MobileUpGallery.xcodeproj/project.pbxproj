@@ -154,6 +154,7 @@
 				7DDB591B26AF3E2000355E3E /* Frameworks */,
 				7DDB591C26AF3E2000355E3E /* Resources */,
 				1A1E918054D163C67FCC46DB /* [CP] Embed Pods Frameworks */,
+				7DCC281726B377910066615A /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -228,6 +229,23 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MobileUpGallery/Pods-MobileUpGallery-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		7DCC281726B377910066615A /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 		D192B1FAB80A76A6658174BF /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;

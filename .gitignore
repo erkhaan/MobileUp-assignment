@@ -7,3 +7,4 @@ xcuserdatad
 xcuserdata
 Podfile
 Podfile.lock
+.swiftlint.yml
