@@ -1,49 +1,47 @@
 // MARK: - Welcome
 struct Welcome: Codable {
-	let response: Response
+    let response: Response
 }
 
 // MARK: - Response
 struct Response: Codable {
-	let count: Int
-	let items: [Item]
+    let count: Int
+    let items: [Item]
 }
 
 // MARK: - Item
 struct Item: Codable {
-	let album_id, date, id, owner_id: Int
-	let has_tags: Bool
-	let sizes: [Size]
-	let text: String
-	let user_id: Int
+    let date: Int
+    let sizes: [Size]
+    let text: String
 }
 
 // MARK: - Size
 struct Size: Codable {
-	let height: Int
-	let url: String
-	let type: TypeEnum
-	let width: Int
+    let height: Int
+    let url: String
+    let type: TypeEnum
+    let width: Int
 }
 
 enum TypeEnum: String, Codable {
-	case m = "m"
-	case o = "o"
-	case p = "p"
-	case q = "q"
-	case r = "r"
-	case s = "s"
-	case w = "w"
-	case x = "x"
-	case y = "y"
-	case z = "z"
+    case m
+    case o
+    case p
+    case q
+    case r
+    case s
+    case w
+    case x
+    case y
+    case z
 }
 
-struct ValidationWelcome: Codable{
-	let response: ValidationResponse
+struct ValidationWelcome: Codable {
+    let response: ValidationResponse
 }
 
-struct ValidationResponse: Codable{
-	let success: Int
-	let userId, date, expire: Int?
+struct ValidationResponse: Codable {
+    let success: Int
+    let userId, date, expire: Int?
 }
